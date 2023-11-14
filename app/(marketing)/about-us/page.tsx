@@ -33,7 +33,7 @@ export default function AboutUs() {
                     </h1>
                 </div>
                 <p className="mb-6 text-base leading-7 text-gray-500 ">
-                Adrenl is your go-to platform for finding and planning exciting adventures. We've gathered a wide range of thrilling experiences, from outdoor activities to cultural encounters, all in one place. Whether you're an experienced adventurer or just starting out, our platform helps you discover and book your next adventure. Plus, it's a community where you can connect with others who share your passion for exploration. Join us and get ready for an unforgettable journey!
+                Adrenl is your go-to platform for finding and planning exciting adventures. We&apos;ve gathered a wide range of thrilling experiences, from outdoor activities to cultural encounters, all in one place. Whether you&apos;re an experienced adventurer or just starting out, our platform helps you discover and book your next adventure. Plus, it&apos;s a community where you can connect with others who share your passion for exploration. Join us and get ready for an unforgettable journey!
                 </p>
                 <a href="#" 
                     className="px-4 py-2 text-gray-100 bg-rose-500 rounded">

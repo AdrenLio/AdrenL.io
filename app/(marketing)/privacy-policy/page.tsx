@@ -155,7 +155,7 @@ export default function PrivacyPolicy(){
           your information. However, no method of data transmission over the internet is
           entirely secure, and we cannot guarantee the security of your data.</p>
           
-          <h3 className="text-xl font-bold my-5">2.5 Children's Privacy</h3>
+          <h3 className="text-xl font-bold my-5">2.5 Children&apos;s Privacy</h3>
           <p className="text-base leading-8 my-5">
           Adrenl is not intended for use by individuals under the age of 18. If you believe a
           minor has provided us with their personal information, please contact us, and we will
@@ -165,7 +165,7 @@ export default function PrivacyPolicy(){
           <p className="text-base leading-8 my-5">
           We may update this Privacy Policy from time to time to reflect changes in our
           practices or for legal compliance. We will notify you of any material changes, and the
-          updated policy will be effective upon the "Effective Date" stated at the beginning.</p>
+          updated policy will be effective upon the &quot;Effective Date&quot; stated at the beginning.</p>
 
 
           <hr className="mt-10"/>

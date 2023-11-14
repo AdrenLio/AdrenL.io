@@ -28,16 +28,18 @@ export default async function ProfileAvatarInput({nameInitial,avatar}:ProfileAva
           htmlFor="avatar"
         >
           <input
-            onChange={async({ target }) => {
+            onChange={async ({ target }) => {
               const { files } = target;
-              if (files) setAvatarFile && setAvatarFile(files[0]);
+              if (files) {
+                setAvatarFile(files[0]);
 
               const formData = new FormData();
-              formData.append('file', avatarFile);
+              formData.append('file', files[0]);
               const data = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`, {
                 method: 'POST',
                 body: formData
               }).then(r => r.json());
+            }
             }}
             type="file"
             id="avatar"

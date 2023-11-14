@@ -8,12 +8,13 @@ import { User } from '@prisma/client';
 
 interface infoProps{
   info : {
-    name: string;
+    name: any;
     avatar : string;
-    email : string;
+    email : any;
     number : string;
     address : string;
-    propName: string;
+    propName?: string;
+    id: string;
   };
   currentUser: User;
 }

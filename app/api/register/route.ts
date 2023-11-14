@@ -31,10 +31,10 @@ export async function POST (request: Request) {
         data: {token: hashedToken, userId: user.id}
     });
 
-    const verificationUrl = `http://localhost:3000/verify?token=${token}&userId=${user.id}`;
+    const verificationUrl = `https://adrenl.io/verify?token=${token}&userId=${user.id}`;
 
     const res = await sendEmail({
-        profile: { name: user.name ,email: user.email },
+        profile: { name: user.name || '',email: user.email || ''},
         subject: "verification",
         linkUrl: verificationUrl,
     });

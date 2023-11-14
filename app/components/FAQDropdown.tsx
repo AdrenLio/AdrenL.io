@@ -3,7 +3,7 @@ interface DropDownProps{
     answer: string;
     toggleQuestion: Function;
     index: number;
-    openQuestionIndex: number
+    openQuestionIndex: any;
 }
 export default function Dropdown ({question,answer,index,toggleQuestion,openQuestionIndex}:DropDownProps){
     return (

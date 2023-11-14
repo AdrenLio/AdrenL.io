@@ -89,7 +89,7 @@ export default function TSC(){
         <h3 className="text-xl font-bold my-5">6.1. Total Transaction Amount</h3>
         <p className="text-base leading-8 my-5">
         Customers agree to pay the total transaction amount, including adventure fees,
-        AdrenL's commission, and any additional services, as communicated on the
+        AdrenL&apos;s commission, and any additional services, as communicated on the
         platform.</p>
 
         <h3 className="text-xl font-bold my-5">6.2. Cancellations and Refunds</h3>

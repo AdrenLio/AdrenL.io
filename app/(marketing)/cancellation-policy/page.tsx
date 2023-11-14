@@ -16,7 +16,7 @@ export default function CancellationPolicy(){
   <div className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
       <div className="">
 
-      <h3 className="text-md my-5">Reservation booked on the Adrenl platform can be cancelled online, and refunds will be provided in accordance with Adrenl's refund policies as outlined below:
+      <h3 className="text-md my-5">Reservation booked on the Adrenl platform can be cancelled online, and refunds will be provided in accordance with Adrenl&apos;s refund policies as outlined below:
 </h3>
 
         <h2 className="text-2xl font-bold my-5">Cancellation Options:</h2>

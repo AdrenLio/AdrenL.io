@@ -2,6 +2,14 @@ import { redirect, useRouter } from "next/navigation";
 import isAdminAuthenticated from "@/app/actions/isAdminAuthenticated";
 import { getHosts, getUnverifiedHosts, getVerifiedHosts } from "@/app/actions/getHosts";
 import VerifyClient from "./verifyClient";
+import { Host } from "@prisma/client";
+
+interface SortableTableProps {
+  verifiedHosts: Host[];
+  notVerifiedHosts: Host[];
+  hosts: Host[];
+}
+
 
 export async function SortableTable() {
   const isAdmin = await isAdminAuthenticated();

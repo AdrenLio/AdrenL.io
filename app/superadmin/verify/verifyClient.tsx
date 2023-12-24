@@ -31,9 +31,9 @@ const TABLE_HEAD = ["Host", "Details", "Status", "Details.", ""];
 import { Host } from "@prisma/client";
 
 interface VerifyClientProps {
-  verifiedHosts: Host;
-  notVerifiedHosts: Host;
-  hosts: Host;
+  verifiedHosts: Host[];
+  notVerifiedHosts: Host[];
+  hosts: Host[];
 }
 
 const VerifyClient:React.FC<VerifyClientProps> = async ({ verifiedHosts, notVerifiedHosts, hosts }) => {

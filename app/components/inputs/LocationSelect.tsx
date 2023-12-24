@@ -77,7 +77,7 @@ const LocationSelect: React.FC<LocationSelectProps> = ({value, stateValue, cityV
                 options={State.getStatesOfCountry(value.value).map((state) => ({
                     value: state.isoCode,
                     label: state.name,
-                    latlng: [state.latitude, state.longitude]
+                    latlng: [Number(state.latitude), Number(state.longitude)] as [number, number]
                 }))}
                 value={stateValue}
                 onChange={(value) => onStateChange(value as StateSelectValue)}
@@ -104,7 +104,7 @@ const LocationSelect: React.FC<LocationSelectProps> = ({value, stateValue, cityV
                 isClearable
                 options={City.getCitiesOfState(value?.value, stateValue.value).map((city) => ({
                     label: city.name,
-                    latlng: [city.latitude, city.longitude]
+                    latlng: [Number(city.latitude), Number(city.longitude)] as [number, number]
                 }))}
                 value={cityValue}
                 onChange={(value) => onCityChange(value as CitySelectValue)}

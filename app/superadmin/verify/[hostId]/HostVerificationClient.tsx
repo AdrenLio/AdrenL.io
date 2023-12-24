@@ -1,10 +1,22 @@
 "use client"
 
+import { Host } from "@prisma/client";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-export default async function HostVerificationClient({pdfUrls, leftTableData, rightTableData, host}){
-    const handleSubmit = async (e) => {
+interface TableItem {
+  label: string;
+  value: string | number | boolean | null | undefined;
+}
+
+interface HostVerificationClientProps {
+  pdfUrls: (string | null | undefined)[];
+  leftTableData: TableItem[];
+  rightTableData: TableItem[];
+  host: Host;
+}
+const HostVerificationClient:React.FC<HostVerificationClientProps> = async ({pdfUrls, leftTableData, rightTableData, host})=>{
+    const handleSubmit = async (e:any) => {
         axios.post('/api/hosting/verify', {hostId: host?.id})
         .then((res) =>{
             console.log(res);
@@ -63,7 +75,7 @@ export default async function HostVerificationClient({pdfUrls, leftTableData, ri
                 <h3 className="text-lg font-semibold mb-4">PDF Viewer {index + 1}</h3>
                 <iframe
                   title={` ${index + 1}`}
-                  src={url}
+                  src={url ?? ""}
                   width="100%"
                   height="400px"
                   frameBorder="0"
@@ -75,3 +87,5 @@ export default async function HostVerificationClient({pdfUrls, leftTableData, ri
       </div>
     )
 }
+
+export default HostVerificationClient;

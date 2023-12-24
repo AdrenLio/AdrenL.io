@@ -15,6 +15,7 @@ import getCurrentUser from './actions/getCurrentUser';
 import { NextRouter } from 'next/router';
 import AuthContext from './providers/AuthProvider';
 import LayoutHelper from "@/app/helper/index"
+import { Host, User } from '@prisma/client';
 
 const font=Nunito({
   subsets: ["latin"],
@@ -27,13 +28,17 @@ export const metadata: Metadata = {
 interface LayoutProps {
   children: React.ReactNode;
   router: NextRouter;
+} 
+
+interface UserIncludesHostProps extends User{
+  host: Host
 }
 
 
 export default async function RootLayout({
   children, router
 }: LayoutProps) {
-  const currentUser=await getCurrentUser();
+  const currentUser=await getCurrentUser() as UserIncludesHostProps; 
   return (
     <html lang="en">
       <body className={font.className}>

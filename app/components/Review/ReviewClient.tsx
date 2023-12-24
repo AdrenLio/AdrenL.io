@@ -44,7 +44,7 @@ const ReviewClient: React.FC<Props> = ({ reviews }) => {
   return (
     <>
       {reviews.slice(0, 4).map((review) => (
-        <ReviewCard review={review} formatPostedTime={formatPostedTime} />
+        <ReviewCard key={review.id} review={review} formatPostedTime={formatPostedTime} />
       ))}
 
       {showMoreButton && (

@@ -32,7 +32,7 @@ const TABLE_HEAD = ["Host", "Details", "Status", "Details.", ""];
 
 
 interface HostsIncludeProps extends Host {
-    user: User;
+  user?: User | undefined;
 }
 
 interface VerifyClientProps {

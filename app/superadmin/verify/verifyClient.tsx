@@ -116,6 +116,7 @@ const VerifyClient = async ({ verifiedHosts, notVerifiedHosts, hosts }) => {
               {TABLE_ROWS.map((data) => {
                 return (
                   <TableRow
+                    key={data?.id}
                     img={data?.user?.image}
                     name={data?.user?.name}
                     email={data?.user?.email}

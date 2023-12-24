@@ -13,6 +13,7 @@ import {
 } from "@material-tailwind/react";
 import TableRow from "./tableRow";
 import { useState } from "react";
+import { Host, User } from "@prisma/client";
 const TABS = [
   {
     label: "All",
@@ -28,16 +29,24 @@ const TABS = [
   },
 ];
 const TABLE_HEAD = ["Host", "Details", "Status", "Details.", ""];
-import { Host } from "@prisma/client";
 
-interface VerifyClientProps {
-  verifiedHosts: Host[];
-  notVerifiedHosts: Host[];
-  hosts: Host[];
+
+interface HostsIncludeProps extends Host {
+    user: User;
 }
 
-const VerifyClient:React.FC<VerifyClientProps> = async ({ verifiedHosts, notVerifiedHosts, hosts }) => {
-  const [activeTab, setActiveTab] = useState("all");
+interface VerifyClientProps {
+    verifiedHosts: HostsIncludeProps[];
+    notVerifiedHosts: HostsIncludeProps[];
+    hosts: HostsIncludeProps[];
+}
+
+const VerifyClient: React.FC<VerifyClientProps> = async({
+    verifiedHosts,
+    notVerifiedHosts,
+    hosts,
+}) => {
+    const [activeTab, setActiveTab] = useState<string>("all");
 
   const getData = (activeTab:any) => {
     if (activeTab === "all") {
@@ -50,7 +59,7 @@ const VerifyClient:React.FC<VerifyClientProps> = async ({ verifiedHosts, notVeri
       return [];
     }
   };
-  const TABLE_ROWS= getData(activeTab);
+  const TABLE_ROWS: HostsIncludeProps[]= getData(activeTab);
 
   return (
     <>
@@ -120,17 +129,16 @@ const VerifyClient:React.FC<VerifyClientProps> = async ({ verifiedHosts, notVeri
               </tr>
             </thead>
             <tbody>
-              {TABLE_ROWS.map((data:any) => {
+              {TABLE_ROWS.map((data) => {
                 return (
-                  <TableRow
-                    key={data?.id}
-                    img={data?.user?.image}
-                    name={data?.user?.name}
-                    email={data?.user?.email}
-                    verified={data?.isVerified}
-                    date={data?.verificationDate}
-                    id={data?.id}
-                  />
+                <TableRow
+                  img={data?.user?.image ?? ""}
+                  name={data?.user?.name ?? ""}
+                  email={data?.user?.email ?? ""}
+                  verified={data?.isVerified ?? false}
+                  date={data?.verificationDate?.toISOString() ?? ""}
+                  id={data?.id ?? ""}
+                />
                 );
               })}
             </tbody>

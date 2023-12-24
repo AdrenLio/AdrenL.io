@@ -132,6 +132,7 @@ const VerifyClient: React.FC<VerifyClientProps> = async({
               {TABLE_ROWS.map((data) => {
                 return (
                 <TableRow
+                  key={data?.id}
                   img={data?.user?.image ?? ""}
                   name={data?.user?.name ?? ""}
                   email={data?.user?.email ?? ""}

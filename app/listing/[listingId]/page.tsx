@@ -7,6 +7,7 @@ import getListingById from "@/app/actions/getListingById";
 import getReview from "@/app/actions/getReview";
 import getPausedDates from "@/app/actions/getPausedDates";
 import getFuturePricings from "@/app/actions/getFuturePricings";
+import getPayload from "@/app/actions/payment/getPayload";
 
 interface IParams {
     listingId?: string;
@@ -17,8 +18,7 @@ const ListingPage = async ({ params }: {params: IParams}) => {
     const currentUser = await getCurrentUser();
     const reviews = await getReview(listing?.id as string);
     const pausedDates = await getPausedDates(params);
-    const futurePrices = await getFuturePricings(params);
-        
+       
     if(!listing) {
         return (
             <ClientOnly>
@@ -26,10 +26,11 @@ const ListingPage = async ({ params }: {params: IParams}) => {
             </ClientOnly>
         );
     }
+    const { data, payloadMain, checksum } = getPayload({ currentUser, priceTotal: listing?.price });
 
     return (
         <ClientOnly>
-            <ListingClient listing={listing} pausedDates={pausedDates} currentUser={currentUser} reviews={reviews} futurePrices={futurePrices}/>
+            <ListingClient listing={listing} pausedDates={pausedDates} currentUser={currentUser} reviews={reviews} data={data} payloadMain={payloadMain} checksum={checksum} />
         </ClientOnly>
     );
 }

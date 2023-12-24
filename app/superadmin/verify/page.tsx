@@ -10,22 +10,22 @@ interface SortableTableProps {
   hosts: Host[];
 }
 
-
-export async function SortableTable() {
+const SortableTable:React.FC<SortableTableProps> = async () => {
   const isAdmin = await isAdminAuthenticated();
   if (!isAdmin) {
     return redirect("/superadmin/login");
   }
 
-  const verifiedHosts = getVerifiedHosts();
-  const notVerifiedHosts = getUnverifiedHosts();
-  const hosts = getHosts();
+  const verifiedHosts: Host[] = await getVerifiedHosts();
+  const notVerifiedHosts: Host[] = await getUnverifiedHosts();
+  const hosts: Host[] = await getHosts();
 
   return (
    <>
     <VerifyClient verifiedHosts={verifiedHosts} notVerifiedHosts={notVerifiedHosts} hosts={hosts}/>
    </>
   );
+
 }
 
 export default SortableTable;

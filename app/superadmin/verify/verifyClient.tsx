@@ -28,11 +28,18 @@ const TABS = [
   },
 ];
 const TABLE_HEAD = ["Host", "Details", "Status", "Details.", ""];
+import { Host } from "@prisma/client";
 
-const VerifyClient = async ({ verifiedHosts, notVerifiedHosts, hosts }) => {
+interface VerifyClientProps {
+  verifiedHosts: Host;
+  notVerifiedHosts: Host;
+  hosts: Host;
+}
+
+const VerifyClient:React.FC<VerifyClientProps> = async ({ verifiedHosts, notVerifiedHosts, hosts }) => {
   const [activeTab, setActiveTab] = useState("all");
 
-  const getData = (activeTab) => {
+  const getData = (activeTab:any) => {
     if (activeTab === "all") {
       return hosts;
     } else if (activeTab === "verified") {
@@ -43,7 +50,7 @@ const VerifyClient = async ({ verifiedHosts, notVerifiedHosts, hosts }) => {
       return [];
     }
   };
-  const TABLE_ROWS = await getData(activeTab);
+  const TABLE_ROWS= getData(activeTab);
 
   return (
     <>
@@ -113,7 +120,7 @@ const VerifyClient = async ({ verifiedHosts, notVerifiedHosts, hosts }) => {
               </tr>
             </thead>
             <tbody>
-              {TABLE_ROWS.map((data) => {
+              {TABLE_ROWS.map((data:any) => {
                 return (
                   <TableRow
                     key={data?.id}

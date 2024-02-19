@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/app/libs/prismadb";
 import crypto from "crypto"
+import { sendEmail } from "@/app/libs/email";
 
 interface EmailVerifyRequest{
     token : string;
@@ -44,6 +45,17 @@ export async function POST (req: Request) {
         await prisma.emailVerificationToken.delete({
             where:{userId},
         });
+
+        const user = await prisma.user.findFirst({
+            where: {id:userId}
+        }
+        )
+
+        const res = await sendEmail({
+            profile: { name: user?.name || '',email: user?.email || ''},
+            subject: "verification"
+        });
+    
 
         return NextResponse.json({ message: "Your email is verified." });
     }

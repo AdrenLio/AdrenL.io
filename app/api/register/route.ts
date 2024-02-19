@@ -39,7 +39,5 @@ export async function POST (request: Request) {
         linkUrl: verificationUrl,
     });
 
-    console.log(res);
-
     return NextResponse.json(token);
 }

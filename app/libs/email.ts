@@ -27,7 +27,7 @@ type profile = {
 
 interface EmailOptions {
     profile: profile;
-    subject: "verification" | "forget-password" | "password-changed";
+    subject: "verification" | "forget-password" | "password-changed" | "welcome";
     linkUrl?: string;
 }
 
@@ -73,6 +73,20 @@ const sendUpdatePasswordConfirmation = async (profile: profile) => {
     }
   });
 };
+
+const sendWelcomeEmail = async (profile: profile) => {
+  const recipients = [{ email: profile.email }];
+  await client.send({
+    from: sender,
+    to: recipients,
+    template_uuid: "89437007-0def-4bd5-a0f0-ae500b5d73f6",
+    template_variables: {
+      user_name: profile.name,
+    }
+  });
+};
+
+
   
 export const sendEmail = (options: EmailOptions) => {
   const { profile, subject, linkUrl } = options;
@@ -83,5 +97,7 @@ export const sendEmail = (options: EmailOptions) => {
       return sendForgetPasswordLink(profile, linkUrl!);
     case "password-changed":
       return sendUpdatePasswordConfirmation(profile);
+    case "welcome":
+      return sendWelcomeEmail(profile);
   }
 };

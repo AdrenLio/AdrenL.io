@@ -3,11 +3,11 @@ import Logo from "./Logo";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
 import Categories from "./Categories";
-import { User } from "@prisma/client";
+import { Host, User } from "@prisma/client";
 import Notification from "./Notification";
 
 interface NavbarProps {
-  currentUser?: User | null;
+  currentUser: User & {host: Host};
 }
 
 const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {

@@ -5,22 +5,22 @@ import { useRouter } from "next/navigation";
 const Blog = () => {
   const router = useRouter();
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <section className="bg-gray-50">
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
         <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
-          <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-            Our Blog
+          <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900">
+            Blog Posts
           </h2>
-          <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">
-            Dive into our adventure blog: your guide to learning about the
-            world's most thrilling journeys, from hidden gems to epic trails.
+          <p className="font-light text-gray-500 sm:text-xl ">
+            Dive into our adventure blogs: your guide to learning about the
+            world&apos;s most thrilling journeys, from hidden gems to epic trails.
             Start your adventure here.
           </p>
         </div>
         <div className="grid gap-8 lg:grid-cols-2">
-          <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+          <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md ">
             <div className="flex justify-between items-center mb-5 text-gray-500">
-              <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
+              <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded ">
                 <svg
                   className="mr-1 w-3 h-3"
                   fill="currentColor"
@@ -31,15 +31,15 @@ const Blog = () => {
                 </svg>
                 Tutorial
               </span>
-              <span className="text-sm">14 days ago</span>
+              <span className="text-sm">Feb 19th, 2024</span>
             </div>
-            <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
               <a href="#">
                 How to Plan Your First Solo Backpacking Trip: A Step-by-Step
                 Guide for Beginners
               </a>
             </h2>
-            <p className="mb-5 font-light text-gray-500 dark:text-gray-400">
+            <p className="mb-5 font-light text-gray-500 ">
               Eco-Friendly Adventure Travel: How to Explore Sustainably and
               Leave No Trace
             </p>
@@ -47,10 +47,10 @@ const Blog = () => {
               <div className="flex items-center space-x-4">
                 <img
                   className="w-7 h-7 rounded-full"
-                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
+                  src="/images/placeholder.jpg"
                   alt="Jese Leos avatar"
                 />
-                <span className="font-medium dark:text-white">Shashwat</span>
+                <span className="font-medium ">Shashwat</span>
               </div>
               <div
                 onClick={() => {
@@ -59,7 +59,7 @@ const Blog = () => {
               >
                 <a
                   href="#"
-                  className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline"
+                  className="inline-flex items-center font-medium text-primary-600  hover:underline"
                 >
                   Read more
                   <svg
@@ -78,9 +78,9 @@ const Blog = () => {
               </div>
             </div>
           </article>
-          <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+          <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md ">
             <div className="flex justify-between items-center mb-5 text-gray-500">
-              <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
+              <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded">
                 <svg
                   className="mr-1 w-3 h-3"
                   fill="currentColor"
@@ -96,15 +96,15 @@ const Blog = () => {
                 </svg>
                 Article
               </span>
-              <span className="text-sm">14 days ago</span>
+              <span className="text-sm">Coming Soon</span>
             </div>
-            <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
               <a href="#">
                 Thrill-Seekers and Nature Lovers: Exploring the Top 5 Adventure
                 Destinations of 2024
               </a>
             </h2>
-            <p className="mb-5 font-light text-gray-500 dark:text-gray-400">
+            <p className="mb-5 font-light text-gray-500 ">
               Eco-Friendly Adventure Travel: How to Explore Sustainably and
               Leave No Trace
             </p>
@@ -112,14 +112,14 @@ const Blog = () => {
               <div className="flex items-center space-x-4">
                 <img
                   className="w-7 h-7 rounded-full"
-                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                  src="/images/placeholder.jpg"
                   alt="Bonnie Green avatar"
                 />
-                <span className="font-medium dark:text-white">Abhay</span>
+                <span className="font-medium">Abhay</span>
               </div>
               <a
-                href="#"
-                className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline"
+                href="/coming-soon"
+                className="inline-flex items-center font-medium text-primary-600 hover:underline"
               >
                 Read more
                 <svg

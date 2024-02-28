@@ -12,11 +12,9 @@ export default async function Notifications() {
   const seenNotifications = Notifications.filter(
     (notification) => notification.readStatus === true
   );
-  console.log(seenNotifications);
   const unseenNotifications = Notifications.filter(
     (notification) => notification.readStatus === false
   );
-  console.log(unseenNotifications);
 
   const formatTimeDifference = (timestamp: Date) => {
     const now = new Date();

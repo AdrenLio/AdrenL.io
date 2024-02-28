@@ -42,7 +42,7 @@ const HostVerificationClient:React.FC<HostVerificationClientProps> = async ({pdf
         <div className="bg-white p-8 rounded-lg shadow-lg">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-semibold">Host Information</h2>
-            {host?.isVerified ? null :<button className="bg-blue-500 text-white px-4 py-2 rounded-md" onClick={handleSubmit}>Verify Host</button>}
+            {host?.isVerified || !host?.aadharCard ? null :<button className="bg-blue-500 text-white px-4 py-2 rounded-md" onClick={handleSubmit}>Verify Host</button>}
           </div>
   
           <div className="flex space-x-8 mb-8">

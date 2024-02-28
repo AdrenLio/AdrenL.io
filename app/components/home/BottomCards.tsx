@@ -1,14 +1,8 @@
-"use client";
+'use client';
 
-import {
-  CardTitle,
-  CardHeader,
-  CardContent,
-  CardFooter,
-  Card,
-} from "@/app/components/shadcn/CardWhite";
+import { CardTitle, CardHeader, CardContent, CardFooter, Card } from "@/app/components/shadcn/CardWhite";
 import { Button } from "@/app/components/shadcn/Button";
-import Image from "next/image";
+import Image from 'next/image';
 import { useRouter } from "next/navigation";
 
 export default function Component() {
@@ -29,20 +23,11 @@ export default function Component() {
             src="/images/courses.jpg"
           />
           <p className="mt-4 text-black">
-            Our courses are designed to provide you with the best learning
-            experience. From skiing to paragliding, we have it all.
+            Our courses are designed to provide you with the best learning experience. From skiing to paragliding, we have it all.
           </p>
         </CardContent>
         <CardFooter>
-          <Button
-            onClick={() => {
-              router.push("/coming-soon");
-            }}
-            variant="outline"
-            className="w-full md:w-auto"
-          >
-            Explore Courses
-          </Button>
+          <Button onClick={() => {router.push('/coming-soon')}} variant="outline" className="w-full md:w-auto">Explore Courses</Button>
         </CardFooter>
       </Card>
       <Card className="w-full md:w-1/2">
@@ -50,30 +35,21 @@ export default function Component() {
           <CardTitle>Blog Posts</CardTitle>
         </CardHeader>
         <CardContent>
-          <Image
+        <Image
             alt="Blog Post"
             className="aspect-video overflow-hidden rounded-xl object-cover object-center"
             height={310}
             width={800}
             src="/images/blog.jpg"
-          />
+        />
           <p className="mt-4 text-black">
-            Our community of adventurers share their experiences and tips in our
-            blog. Get inspired for your next adventure.
+            Our community of adventurers share their experiences and tips in our blog. Get inspired for your next adventure.
           </p>
         </CardContent>
         <CardFooter>
-          <Button
-            onClick={() => {
-              router.push("/blog");
-            }}
-            variant="outline"
-            className="w-full md:w-auto"
-          >
-            Read Blogs
-          </Button>
+          <Button onClick={() => {router.push('/blog')}} variant="outline" className="w-full md:w-auto">Read Blogs</Button>
         </CardFooter>
       </Card>
     </div>
-  );
+  )
 }

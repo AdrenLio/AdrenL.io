@@ -39,11 +39,11 @@ const VerifyClient: React.FC<VerifyClientProps> = async ({ verifiedHosts, notVer
 
     const getData = (activeTab: any) => {
         if (activeTab === "all") {
-            return hosts;
+            return hosts.filter( host => host.aadharCard ? true: false);
         } else if (activeTab === "verified") {
-            return verifiedHosts;
+            return verifiedHosts.filter( host => host.aadharCard ? true: false);
         } else if (activeTab === "notVerified") {
-            return notVerifiedHosts;
+            return notVerifiedHosts.filter( host => host.aadharCard ? true: false);
         } else {
             return [];
         }

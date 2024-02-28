@@ -12,6 +12,7 @@ import SearchModal from './components/modals/SearchModal';
 import Footer from "./components/Footer";
 
 import getCurrentUser from './actions/getCurrentUser';
+import getNotifications from "@/app/actions/getNotifications";
 import AuthContext from './providers/AuthProvider';
 import LayoutHelper from "@/app/helper/index"
 import VerificationAlert from './components/VerificationAlert';
@@ -37,6 +38,7 @@ export default async function RootLayout({
   children
 }: LayoutProps) {
   const currentUser=await getCurrentUser() as UserIncludesHostProps;
+  const fetchedNotifications = await getNotifications(currentUser.id);
   const isVerified = currentUser?.emailVerified;
   return (
     <html lang="en">
@@ -47,7 +49,7 @@ export default async function RootLayout({
           <HostModal />
           <LoginModal />
           <RegisterModal />
-          <Navbar currentUser={currentUser}/>
+          <Navbar currentUser={currentUser} notifications={fetchedNotifications}/>
           
         </ClientOnly>
         <LayoutHelper>

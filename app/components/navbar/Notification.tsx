@@ -5,7 +5,7 @@ export default function Notification({
 }) {
   return (
     <>
-      <div className="relative m-6 inline-flex w-full lg:w-fit">
+      <div className="relative inline-flex w-full lg:w-fit">
         {notificationCount > 0 && (
           <div className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-red-600 text-white text-sm font-bold shadow-lg lg:scale-100">
             {notificationCount}

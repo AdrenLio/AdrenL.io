@@ -6,21 +6,19 @@ import axios from "axios";
 
 export default async function Notifications() {
   const currentUser = await getCurrentUser();
-  const Notifications = await getNotifications(currentUser?.id);
+  const Notifications = await getNotifications(currentUser?.id ?? "");
   
 
   const seenNotifications = Notifications.filter(
     (notification) => notification.readStatus === true
   );
-  console.log(seenNotifications);
   const unseenNotifications = Notifications.filter(
     (notification) => notification.readStatus === false
   );
-  console.log(unseenNotifications);
 
   const formatTimeDifference = (timestamp: Date) => {
     const now = new Date();
-    const timeDifference = now - new Date(timestamp);
+    const timeDifference = now.getTime() - new Date(timestamp).getTime();
     const seconds = Math.floor(timeDifference / 1000);
 
     if (seconds < 60) {
@@ -65,7 +63,7 @@ export default async function Notifications() {
                   message={notification.message}
                   time={formatTimeDifference(notification.timestamp)}
                   readStatus={notification.readStatus}
-                  redirectURL={notification.redirectURL}
+                  redirectURL={notification.redirectURL ?? ""}
                 />
               ))
             ) : (
@@ -90,7 +88,7 @@ export default async function Notifications() {
                   message={notification.message}
                   time={formatTimeDifference(notification.timestamp)}
                   readStatus={notification.readStatus}
-                  redirectURL={notification.redirectURL}
+                  redirectURL={notification.redirectURL ?? ""}
                 />
               ))
             }

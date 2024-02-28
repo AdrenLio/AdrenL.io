@@ -4,7 +4,8 @@ import { ChevronUpDownIcon } from "@heroicons/react/24/outline";
 import { Card, CardHeader, Typography, Button, CardBody, CardFooter, Tabs, TabsHeader, Tab } from "@material-tailwind/react";
 import TableRow from "./tableRow";
 import { useState } from "react";
-import { Host } from "@prisma/client";
+import { Host, User } from "@prisma/client";
+import { format } from "date-fns";
 
 const TABS = [
     {
@@ -23,28 +24,32 @@ const TABS = [
 
 const TABLE_HEAD = ["Host", "Details", "Status", "KYC Verification Date", "More Info"];
 
+interface HostsIncludeProps extends Host {
+    user?: User | undefined;
+}
+
 interface VerifyClientProps {
-    verifiedHosts: Host[] |null;
-    notVerifiedHosts: Host[];
-    hosts: Host[];
+    verifiedHosts: HostsIncludeProps[];
+    notVerifiedHosts: HostsIncludeProps[];
+    hosts: HostsIncludeProps[];
 }
 
 const VerifyClient: React.FC<VerifyClientProps> = async ({ verifiedHosts, notVerifiedHosts, hosts }) => {
-    const [activeTab, setActiveTab] = useState("all");
+    const [activeTab, setActiveTab] = useState<string>("all");
 
-    const getData = (activeTab: string) => {
+    const getData = (activeTab: any) => {
         if (activeTab === "all") {
-            return hosts;
+            return hosts.filter( host => host.aadharCard ? true: false);
         } else if (activeTab === "verified") {
-            return verifiedHosts;
+            return verifiedHosts.filter( host => host.aadharCard ? true: false);
         } else if (activeTab === "notVerified") {
-            return notVerifiedHosts;
+            return notVerifiedHosts.filter( host => host.aadharCard ? true: false);
         } else {
             return [];
         }
     };
 
-    const TABLE_ROWS = await getData(activeTab);
+    const TABLE_ROWS: HostsIncludeProps[] = await getData(activeTab);
 
     return (
         <>
@@ -96,8 +101,8 @@ const VerifyClient: React.FC<VerifyClientProps> = async ({ verifiedHosts, notVer
                         <tbody>
                             {TABLE_ROWS?.map((data) => {
                                 return (
-                                    <TableRow img={data?.user?.image} name={data?.user?.name} email={data?.user?.email}
-                                    verified={data?.isVerified} date={data?.verificationDate} id={data?.id} />
+                                    <TableRow key={data.id} img={data?.user?.image ?? ""} name={data?.user?.name ?? ""} email={data?.user?.email ?? ""}
+                                    verified={data?.isVerified ?? false} date={format(data?.verificationDate ?? new Date(), 'dd-MM-yyyy') ?? ""} id={data?.id ?? ""} />
                                 );
                             })}
                         </tbody>

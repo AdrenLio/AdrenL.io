@@ -29,7 +29,12 @@ export default async function getReservations (params: IParams) {
                         user: true
                     }
                 },
-                transaction: true
+                transaction: {
+                    include: {
+                        refund: true
+                    }
+                },
+                user: true
             },
             orderBy: {
                 createdAt: "desc"
